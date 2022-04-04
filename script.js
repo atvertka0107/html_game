@@ -1,8 +1,3 @@
-let x = 480 / 2;
-let y = 320 - 30;
-let dx = 2;
-let dy = -2;
-
 var ballRadius = 10;
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
@@ -40,6 +35,12 @@ function drawPaddle() {
     ctx.closePath();
 }
 
+function counter(){
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+countLoh, 8, 20);
+}
+
 function keyDownHandler(e) {
     if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
@@ -58,12 +59,16 @@ function keyUpHandler(e) {
     }
 }
 
-
+let x = canvas.width / 2;
+let y = canvas.height - 30;
+let dx = 2;
+let dy = -2;
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawPaddle();
+    counter();
     if(x + dx > canvas.width || x + dx < 0) {
         dx = -dx;
     }
@@ -74,11 +79,11 @@ function draw() {
         if(x > paddleX && x < paddleX + paddleWidth) {
             countLoh += 1;
             dy = -dy;
-            if (countLoh == 5){
-                alert("Ебать ты хуила, сходи помойся!!");
-                document.location.reload();
-                clearInterval(interval);
-            }
+            // if (countLoh == 5){
+            //     alert("Ебать ты хуила, сходи помойся!!");
+            //     document.location.reload();
+            //     clearInterval(interval);
+            // }
         }
         else {
             alert("GAME OVER");
@@ -107,4 +112,4 @@ function draw() {
 }
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-var interval = setInterval(draw, 100);
+var interval = setInterval(draw, 15);
