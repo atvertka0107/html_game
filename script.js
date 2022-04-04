@@ -8,9 +8,19 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var paddleHeight = 10;
 var paddleWidth = 75;
-var paddleX = (480-paddleWidth) / 2;
+var paddleX = (canvas.width-paddleWidth) / 2;
 var rightPressed = false;
 var leftPressed = false;
+
+//breeks may be later...
+var brickRowCount = 3;
+var brickColumnCount = 5;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+
 
 
 function drawBall() {
@@ -57,9 +67,20 @@ function draw() {
         dx = -dx;
     }
     
-    if(y + dy > canvas.height || y + dy < 0) {
+    if(y + dy < ballRadius) {
         dy = -dy;
+    } else if(y + dy > canvas.height-ballRadius) {
+        if(x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else {
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval);
+        }
     }
+    
+    
 
     if(rightPressed) {
         paddleX += 7;
@@ -79,4 +100,4 @@ function draw() {
 }
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-setInterval(draw, 10);
+var interval = setInterval(draw, 10);
