@@ -11,6 +11,7 @@ var paddleWidth = 75;
 var paddleX = (canvas.width-paddleWidth) / 2;
 var rightPressed = false;
 var leftPressed = false;
+var countLoh = 0
 
 //breeks may be later...
 var brickRowCount = 3;
@@ -71,7 +72,13 @@ function draw() {
         dy = -dy;
     } else if(y + dy > canvas.height-ballRadius) {
         if(x > paddleX && x < paddleX + paddleWidth) {
+            countLoh += 1;
             dy = -dy;
+            if (countLoh == 5){
+                alert("Ебать ты хуила, сходи помойся!!");
+                document.location.reload();
+                clearInterval(interval);
+            }
         }
         else {
             alert("GAME OVER");
@@ -100,4 +107,4 @@ function draw() {
 }
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-var interval = setInterval(draw, 10);
+var interval = setInterval(draw, 100);
