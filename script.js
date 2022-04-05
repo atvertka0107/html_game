@@ -38,7 +38,7 @@ function drawPaddle() {
 function counter(){
     ctx.font = "16px Arial";
     ctx.fillStyle = "#0095DD";
-    ctx.fillText("Score: "+countLoh, 8, 20);
+    ctx.fillText("Сколько у тебя отчимов: "+countLoh, 8, 20);
 }
 
 function keyDownHandler(e) {

@@ -1,0 +1,12 @@
+select {
+  border: 2px solid #5B5B5B;
+  background: transparent;
+  width: 125px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  height: 28px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: no-repeat right url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAMAAAAVHr4VAAAASFBMVEVbW1v+/v7Y2NiDg4P7+/vj4+PV1dV0dHRiYmJeXl729vby8vLr6+vPz8/CwsK8vLytra2pqamYmJiVlZWHh4d2dnZpaWloaGivQPliAAAAVklEQVQoz93PSQ6AIBBE0WIScJ69/03VdCQGGvfyt29ThQJT8pWKtRIh42O0OuCKpPGxDmnekOmN3UQ4gK2/rd55PJoLJ2SahWgdK3R2QTYr8ZHDbzsBMLkBiiUpVMwAAAAASUVORK5CYII=')
+}
